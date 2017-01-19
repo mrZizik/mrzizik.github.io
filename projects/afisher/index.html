@@ -156,6 +156,8 @@
             body {
                 min-width: 320px;
             }
+
+
         }
         
         body.is-loading *,
@@ -977,16 +979,23 @@
         .description {
             float: right;
         }
+
+        @media screen and (max-width: 960px) {
+            .description, .logo {
+                float: none;
+                clear: both;
+                margin: 0 auto;
+            }
+
+            .project-name {
+                margin: 0 auto;
+            }
+
+            
+        }
     </style>
     <!--[if lte IE 9]><link rel="stylesheet" href="../../assets/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="../../assets/css/ie8.css" /><![endif]-->
-    <style>
-        @media print {
-            #ghostery-purple-box {
-                display: none !important
-            }
-        }
-    </style>
 </head>
 
 <body class="">
