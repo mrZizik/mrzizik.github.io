@@ -4,7 +4,7 @@
     <title>Abdulmadzhidov.ru</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="../assets/js/respond.min.js"></script>
+        <script src="../../assets/js/respond.min.js"></script>
     <style>
         @charset "UTF-8";
         @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css);
@@ -178,10 +178,10 @@
         body {
             height: 100%;
             background-color: #ffffff;
-            background-image: url("../assets/css/images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../assets/images/bg.jpg");
-            background-image: url("../assets/css/images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../assets/images/bg.jpg");
-            background-image: url("../assets/css/images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../assets/images/bg.jpg");
-            background-image: url("../assets/css/images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../assets/images/bg.jpg");
+            background-image: url("../../assets/css/images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../assets/images/bg.jpg");
+            background-image: url("../../assets/css/images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../assets/images/bg.jpg");
+            background-image: url("../../assets/css/images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../assets/images/bg.jpg");
+            background-image: url("../../assets/css/images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../assets/images/bg.jpg");
             background-repeat: repeat, no-repeat, no-repeat;
             background-size: 100px 100px, cover, cover;
             background-position: top left, center center, bottom center;
@@ -199,10 +199,10 @@
             opacity: 0;
             z-index: 1;
             background-color: #ffffff;
-            background-image: url("../assets/css/images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-            background-image: url("../assets/css/images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-            background-image: url("../assets/css/images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-            background-image: url("../assets/css/images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+            background-image: url("../../assets/css/images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+            background-image: url("../../assets/css/images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+            background-image: url("../../assets/css/images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+            background-image: url("../../assets/css/images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
             background-repeat: repeat, no-repeat;
             background-size: 100px 100px, cover;
             background-position: top left, center center;
@@ -950,29 +950,34 @@
             margin: 0 0 1.5em 0;
         }
         .project {
-            width: 200px;
             margin: 25 25 25 25;
             display: inline-block;
             border-radius: 8px;
-        }
-        .project:hover {
-            background: rgba(255, 165, 150, 0.5) 5%;
+            width: 400px;
         }
         #main {
-            /*min-width: 500px;
-            width: 600px;*/
+            min-width: 500px;
+            width: 600px;
         }
         .logo, .project-name {
             width: 200px;
             text-transform: none;
             font-size: 20;
+            float: right;
         }
         .logo {
             margin-bottom: 15px;
+            display: block;
+            
+        }
+        .logo {
+            margin-bottom: 15px;
+            display: block;
+            float: left;
         }
     </style>
-    <!--[if lte IE 9]><link rel="stylesheet" href="../assets/css/ie9.css" /><![endif]-->
-    <!--[if lte IE 8]><link rel="stylesheet" href="../assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="../../assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="../../assets/css/ie8.css" /><![endif]-->
     <style>
         @media print {
             #ghostery-purple-box {
@@ -985,41 +990,12 @@
 <body class="">
     <div id="wrapper">
         <div id="main">
-        <h1>Portfolio</h1>
-
-        <div class="project">
-        <a href="themeet/">
-            <img class="logo" src="../assets/images/projects/logo-themeet.png">
-            <h4 class="project-name">theMeet</h4>
-        </a>
-        </div>
-
-        <div class="project">
-        <a href="#">
-            <img class="logo" src="../assets/images/projects/logo-afisher.png">
-            <h4 class="project-name">Timepad Afisher</h4>
-        </a>
-        </div>
-
-        <div class="project">
-        <a href="#">
-            <img class="logo" src="../assets/images/projects/logo-checkin.png">
-            <h4 class="project-name">Timepad Checkin</h4>
-        </a>
-        </div>
-        <div class="project">
-        <a href="#">
-            <img class="logo" src="../assets/images/projects/logo-diaspora.png">
-            <h4 class="project-name">MyDiaspora</h4>
-        </a>
-        </div>
-        <div class="project">
-        <a href="#">
-            <img class="logo" src="../assets/images/projects/logo-fotofact.png">
-            <h4 class="project-name">Фотофакт Махачкала</h4>
-        </a>
-        </div>
-            
+            <div class="project">
+                <img class="logo" src="../../assets/images/projects/logo-themeet.png">
+                <div class="description">
+                        <h4 class="project-name">theMeet</h4>
+                </div>
+            </div>
         </div>
         <footer id="footer">
             <ul class="copyright">
