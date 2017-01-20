@@ -1,0 +1,50 @@
+.project-name {
+	min-width: 200px;
+	text-transform: none;
+	font-size: 30;
+
+}
+.description {
+	float: right;
+	width: 500px;
+	margin-bottom: 50px;
+}
+
+@media screen and (max-width: 960px) {
+	.description, .logo {
+		float: none;
+		clear: both;
+		margin: 0 auto;
+	}
+
+	.project-name {
+		margin: 0 auto;
+	}
+
+
+}
+
+.logo {
+	width: 250px;
+}
+.logo {
+	margin-bottom: 15px;
+	display: block;
+
+}
+.logo {
+	margin-bottom: 15px;
+	display: block;
+	float: left;
+}
+.screenshots {
+	clear: both;
+}
+.screenshot {
+	width: 200px;
+	display: inline-block;
+}
+
+.subtitle {
+	font-size: 18;
+}
