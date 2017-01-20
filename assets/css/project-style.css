@@ -32,6 +32,7 @@
 		float: none;
 		clear: both;
 		margin: 0 auto;
+		width: auto;
 	}
 
 	.project-name {
