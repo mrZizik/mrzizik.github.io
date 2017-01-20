@@ -6,7 +6,8 @@
 }
 .description {
 	float: right;
-	width: 500px;
+	width: 500;
+    min-width: 200px;
 	margin-bottom: 50px;
 }
 
