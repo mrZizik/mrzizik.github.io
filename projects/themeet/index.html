@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="../../assets/js/respond.min.js"></script>
+    <link rel="stylesheet" href="../../assets/css/blueimp-gallery.min.css">
     <style>
         @charset "UTF-8";
         @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css);
@@ -156,6 +157,8 @@
             body {
                 min-width: 320px;
             }
+
+
         }
         
         body.is-loading *,
@@ -949,77 +952,40 @@
         .links {
             margin: 0 0 1.5em 0;
         }
-        .project {
-            width: 200px;
-            margin: 25 25 25 25;
-            display: inline-block;
-            border-radius: 8px;
-        }
-        .project:hover {
-            background: rgba(255, 165, 150, 0.5) 5%;
-        }
+        
         #main {
             /*min-width: 500px;
             width: 600px;*/
         }
-        .logo, .project-name {
-            width: 200px;
-            text-transform: none;
-            font-size: 20;
-        }
-        .logo {
-            margin-bottom: 15px;
-        }
+
+        
     </style>
     <!--[if lte IE 9]><link rel="stylesheet" href="../../assets/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="../../assets/css/ie8.css" /><![endif]-->
-    <style>
-        @media print {
-            #ghostery-purple-box {
-                display: none !important
-            }
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/project-style.css">
 </head>
 
 <body class="">
     <div id="wrapper">
         <div id="main">
-        <h1>Portfolio</h1>
+            <img class="logo" align="left" src="../../assets/images/projects/logo-themeet.png">
+            <div class="description">
+                <h4 class="project-name">theMeet</h4>
+                <p>theMeet — это приложение для организации и продвижения встреч, концертов, выставок, конференций и других мероприятий. Полезно как для организаторов, так и для тех, кто ищет, чем занять свой досуг.</p>
+            </div>
 
-        <div class="project">
-        <a href="themeet/">
-            <img class="logo" src="../../assets/images/projects/logo-themeet.png">
-            <h4 class="project-name">theMeet</h4>
-        </a>
-        </div>
-
-        <div class="project">
-        <a href="#">
-            <img class="logo" src="../../assets/images/projects/logo-afisher.png">
-            <h4 class="project-name">Timepad Afisher</h4>
-        </a>
-        </div>
-
-        <div class="project">
-        <a href="#">
-            <img class="logo" src="../../assets/images/projects/logo-checkin.png">
-            <h4 class="project-name">Timepad Checkin</h4>
-        </a>
-        </div>
-        <div class="project">
-        <a href="#">
-            <img class="logo" src="../../assets/images/projects/logo-diaspora.png">
-            <h4 class="project-name">MyDiaspora</h4>
-        </a>
-        </div>
-        <div class="project">
-        <a href="#">
-            <img class="logo" src="../../assets/images/projects/logo-fotofact.png">
-            <h4 class="project-name">Фотофакт Махачкала</h4>
-        </a>
-        </div>
-            
+            <div class="screenshots" id="links">
+            <h4 class="subtitle">Screenshots</h4>
+                <a href="../../assets/images/projects/screenshots/themeet2.jpg" title="A">
+                    <img class="screenshot" src="../../assets/images/projects/screenshots/themeet2.jpg">
+                </a>
+                <a href="../../assets/images/projects/screenshots/themeet1.jpg" title="A">
+                    <img class="screenshot" src="../../assets/images/projects/screenshots/themeet1.jpg">
+                </a>
+                <a href="../../assets/images/projects/screenshots/themeet3.jpg" title="A">
+                    <img class="screenshot" src="../../assets/images/projects/screenshots/themeet3.jpg">
+                </a>
+            </div>
         </div>
         <footer id="footer">
             <ul class="copyright">
@@ -1027,6 +993,8 @@
             </ul>
         </footer>
     </div>
+
+
     <!--[if lte IE 8]><![endif]-->
     <script>
         if ('addEventListener' in window) {
@@ -1083,7 +1051,32 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/42179134" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
+    <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
 </body>
+
+<script src="../../assets/js/blueimp-gallery.min.js"></script>
+
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
+
 
 
 </html>

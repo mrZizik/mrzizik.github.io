@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="../../assets/js/respond.min.js"></script>
+    <link rel="stylesheet" href="../../assets/css/blueimp-gallery.min.css">
     <style>
         @charset "UTF-8";
         @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css);
@@ -973,11 +974,18 @@
                 <p>Afisher – это мобильная афиша мероприятий для Android смартфонов. 
 Здесь удобно находить события на любой вкус: семинары по созданию бизнеса, выступления интересных людей, тренинги по развитию личных качеств, а также вечеринки, выставки, концерты, экскурсии и другие развлечения.</p>
             </div>
-            <div class="screenshots">
-                <h4 class="subtitle">Screenshots</h4>
-                <img class="screenshot" src="../../assets/images/projects/screenshots/afisher1.png">
-                <img class="screenshot" src="../../assets/images/projects/screenshots/afisher2.png">
-                <img class="screenshot" src="../../assets/images/projects/screenshots/afisher3.png">
+
+            <div class="screenshots" id="links">
+            <h4 class="subtitle">Screenshots</h4>
+                <a href="../../assets/images/projects/screenshots/afisher1.png" title="A">
+                    <img class="screenshot" src="../../assets/images/projects/screenshots/afisher1.png">
+                </a>
+                <a href="../../assets/images/projects/screenshots/afisher2.png" title="A">
+                    <img class="screenshot" src="../../assets/images/projects/screenshots/afisher2.png">
+                </a>
+                <a href="../../assets/images/projects/screenshots/afisher3.png" title="A">
+                    <img class="screenshot" src="../../assets/images/projects/screenshots/afisher3.png">
+                </a>
             </div>
             <div class="download">PM</div>
         </div>
@@ -987,6 +995,8 @@
             </ul>
         </footer>
     </div>
+
+
     <!--[if lte IE 8]><![endif]-->
     <script>
         if ('addEventListener' in window) {
@@ -1043,7 +1053,32 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/42179134" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
+    <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
 </body>
+
+<script src="../../assets/js/blueimp-gallery.min.js"></script>
+
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
+
 
 
 </html>
