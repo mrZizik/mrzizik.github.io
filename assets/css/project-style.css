@@ -12,6 +12,12 @@
     min-width: 200px;
 	margin-bottom: 50px;
 	text-align: justify;
+
+}
+
+.description p {
+	text-transform: none;
+	font-size: 16;
 }
 
 
