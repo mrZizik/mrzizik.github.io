@@ -70,7 +70,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .imageWrapper {
   display: flex;
   align-items: center;
-  margin: 0;
+  margin: 0 auto;
   width: 80%;
   height: auto;
 }
@@ -100,6 +100,26 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-size: 2.8rem;
   display: none;
   margin: 0 auto;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.singleLetterWrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 /* For mobile phones: */
