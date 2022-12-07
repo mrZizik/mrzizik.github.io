@@ -194,28 +194,32 @@ let touchstartX = 0;
 let touchendX = 0;
 let touchstartY = 0;
 let touchendY = 0;
+let gestureStartTime = 0;
+let gestureEndTime = 0;
 
 function checkDirection() {
   let diffX = touchendX - touchstartX;
   let diffY = touchendY - touchstartY;
 
-  if (Math.abs(diffX) < Math.abs(diffY)) {
-    if (diffY < 0) {
-      alert("Up");
+  if (gestureEndTime - gestureStartTime < 500) {
+    if (Math.abs(diffX) < Math.abs(diffY)) {
+      if (diffY < 0) {
+        alert("Up");
+      }
+
+      if (diffY > 0) {
+        alert("down");
+      }
     }
 
-    if (diffY > 0) {
-      alert("down");
-    }
-  }
+    if (Math.abs(diffY) < Math.abs(diffX)) {
+      if (diffX < 0) {
+        alert("Left");
+      }
 
-  if (Math.abs(diffY) < Math.abs(diffX)) {
-    if (diffX < 0) {
-      alert("Left");
-    }
-
-    if (diffX > 0) {
-      alert("RIght");
+      if (diffX > 0) {
+        alert("RIght");
+      }
     }
   }
 }
@@ -223,11 +227,13 @@ function checkDirection() {
 document.addEventListener("touchstart", (e) => {
   touchstartX = e.changedTouches[0].screenX;
   touchstartY = e.changedTouches[0].screenY;
+  gestureStartTime = Date().now;
 });
 
 document.addEventListener("touchend", (e) => {
   touchendX = e.changedTouches[0].screenX;
   touchendY = e.changedTouches[0].screenY;
+  gestureEndTime = Date().now;
   checkDirection();
 });
 
