@@ -190,48 +190,6 @@ let sounds = [];
 
 let isImages = true;
 
-let touchstartX = 0;
-let touchendX = 0;
-let touchstartY = 0;
-let touchendY = 0;
-
-function checkDirection() {
-  let diffX = touchendX - touchendX;
-  let diffY = touchendY - touchstartY;
-
-  if (Math.abs(diffX) < Math.abs(diffY)) {
-    if (diffY < 0) {
-      alert("Up");
-    }
-
-    if (diffY > 0) {
-      alert("down");
-    }
-  }
-
-  if (Math.abs(diffY) < Math.abs(diffX)) {
-    if (diffX < 0) {
-      alert("Left");
-    }
-
-    if (diffX > 0) {
-      alert("RIght");
-    }
-  }
-
-  if (touchendX < touchstartX) alert("swiped left!");
-  if (touchendX > touchstartX) alert("swiped right!");
-}
-
-document.addEventListener("touchstart", (e) => {
-  touchstartX = e.changedTouches[0].screenX;
-});
-
-document.addEventListener("touchend", (e) => {
-  touchendX = e.changedTouches[0].screenX;
-  checkDirection();
-});
-
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -255,7 +213,9 @@ function clickLetter(index) {
   sounds[index].play();
   $(".alphabetWrapper").hide();
   $("body").css("background", colors[index]);
-  $(".singleLetter").append();
+  $(".singleLetterWrapper").append(
+    `<img class="letterBackButton backButton" src="img/back.png" onclick="backClicked()"/>`,
+  );
   $(".singleLetterWrapper").append(getLetterHtmlPage(index));
   $(".letterBackButton").show();
   $(".outer").show();
@@ -264,7 +224,6 @@ function clickLetter(index) {
 function backClicked() {
   $(".alphabetWrapper").show();
   $(".backButton").hide();
-  $(".outer").hide();
   $(".singleLetterWrapper").empty();
   $(".infoWrapper").hide();
   $("body").css("background", "#fff");
