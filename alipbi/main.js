@@ -250,7 +250,7 @@ function gestureRight() {
 
 function gestureLeft() {
   if (isMain) {
-    settingsClicked();
+    rotateClicked();
   } else {
     if (currentLetterIndex != -1) {
       if (currentLetterIndex >= 0) {
