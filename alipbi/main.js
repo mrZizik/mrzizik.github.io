@@ -245,16 +245,16 @@ function gestureRight() {
       clickLetter(letters.length - 1);
     }
   }
+}
 
-  function gestureLeft() {
-    if (isMain) {
-      settingsClicked();
+function gestureLeft() {
+  if (isMain) {
+    settingsClicked();
+  } else {
+    if (currentLetterIndex >= 0) {
+      clickLetter(currentLetterIndex + 1);
     } else {
-      if (currentLetterIndex >= 0) {
-        clickLetter(currentLetterIndex + 1);
-      } else {
-        clickLetter(0);
-      }
+      clickLetter(0);
     }
   }
 }
