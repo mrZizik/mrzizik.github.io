@@ -14,7 +14,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .buttonWrapper {
   margin: 0 auto;
   width: 41px;
-  height 41px;
+  height: 41px;
 }
 
 .infoWrapper {
@@ -105,10 +105,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* For mobile phones: */
 .alphabetWrapper {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 83px;
   grid-gap: 4px;
-}
 }
 
 @media only screen and (min-width: 600px) {
