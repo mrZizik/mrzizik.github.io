@@ -291,7 +291,7 @@ function generateAlphabet() {
 }
 
 function clickLetter(index) {
-  alert(1);
+  $(".singleLetterWrapper").empty();
   sounds[index].play();
   $(".alphabetWrapper").hide();
   $("body").css("background", colors[index]);
