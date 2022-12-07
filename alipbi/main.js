@@ -189,6 +189,8 @@ let words = [
 let sounds = [];
 
 let isImages = true;
+let isMain = false;
+let currentLetterIndex = -1;
 
 let touchstartX = 0;
 let touchendX = 0;
@@ -204,22 +206,55 @@ function checkDirection() {
   if (gestureEndTime - gestureStartTime < 500) {
     if (Math.abs(diffX) < Math.abs(diffY)) {
       if (diffY < 0) {
-        alert("Up");
+        gestureUp();
       }
 
       if (diffY > 0) {
-        alert("down");
+        gestureDown();
       }
     }
 
     if (Math.abs(diffY) < Math.abs(diffX)) {
       if (diffX < 0) {
-        alert("Left");
+        gestureLeft();
       }
 
       if (diffX > 0) {
-        alert("RIght");
+        gestureRight();
       }
+    }
+  }
+}
+
+function gestureUp() {
+  if (!isMain) {
+    backClicked();
+  }
+}
+
+function gestureDown() {
+}
+
+function gestureRight() {
+  if (isMain) {
+    rotateClicked();
+  } else {
+    if (currentLetterIndex > 0) {
+      currentLetterIndex++;
+      clickLetter(currentLetterIndex);
+    } else {
+      backClicked();
+    }
+  }
+}
+
+function gestureLeft() {
+  if (isMain) {
+    settingsClicked();
+  } else {
+    if (currentLetterIndex > 0) {
+      currentLetterIndex--;
+      clickLetter(currentLetterIndex);
     }
   }
 }
@@ -264,6 +299,8 @@ function clickLetter(index) {
   $(".singleLetterWrapper").append(getLetterHtmlPage(index));
   $(".letterBackButton").show();
   $(".outer").show();
+  isMain = false;
+  currentLetterIndex = index;
 }
 
 function backClicked() {
@@ -273,6 +310,7 @@ function backClicked() {
   $(".singleLetterWrapper").empty();
   $(".infoWrapper").hide();
   $("body").css("background", "#fff");
+  isMain = true;
 }
 
 function rotateClicked() {
