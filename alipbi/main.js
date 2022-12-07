@@ -196,7 +196,7 @@ let touchstartY = 0;
 let touchendY = 0;
 
 function checkDirection() {
-  let diffX = touchendX - touchendX;
+  let diffX = touchendX - touchstartX;
   let diffY = touchendY - touchstartY;
 
   if (Math.abs(diffX) < Math.abs(diffY)) {
@@ -218,17 +218,16 @@ function checkDirection() {
       alert("RIght");
     }
   }
-
-  if (touchendX < touchstartX) alert("swiped left!");
-  if (touchendX > touchstartX) alert("swiped right!");
 }
 
 document.addEventListener("touchstart", (e) => {
   touchstartX = e.changedTouches[0].screenX;
+  touchstartY = e.changedTouches[0].screenY;
 });
 
 document.addEventListener("touchend", (e) => {
   touchendX = e.changedTouches[0].screenX;
+  touchendY = e.changedTouches[0].screenY;
   checkDirection();
 });
 
