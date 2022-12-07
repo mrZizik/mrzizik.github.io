@@ -1,4 +1,4 @@
-let letters = [
+const letters = [
   "a",
   "б",
   "в",
@@ -45,7 +45,7 @@ let letters = [
   "я",
 ];
 
-let symbols = [
+const symbols = [
   "a",
   "b",
   "v",
@@ -92,7 +92,7 @@ let symbols = [
   "ya",
 ];
 
-let colors = [
+const colors = [
   "#7CD0FF",
   "#FF6F00",
   "#70DB72",
@@ -139,7 +139,7 @@ let colors = [
   "#AB47BC",
 ];
 
-let words = [
+const words = [
   "артанди",
   "беле",
   "ваша",
@@ -186,7 +186,7 @@ let words = [
   "яше",
 ];
 
-let sounds = [];
+const sounds = [];
 
 let isImages = true;
 let isMain = false;
@@ -232,9 +232,6 @@ function gestureUp() {
   }
 }
 
-function gestureDown() {
-}
-
 function gestureRight() {
   if (isMain) {
     rotateClicked();
@@ -267,19 +264,6 @@ function gestureLeft() {
   }
 }
 
-document.addEventListener("touchstart", (e) => {
-  touchstartX = e.changedTouches[0].screenX;
-  touchstartY = e.changedTouches[0].screenY;
-  gestureStartTime = Date.now();
-});
-
-document.addEventListener("touchend", (e) => {
-  touchendX = e.changedTouches[0].screenX;
-  touchendY = e.changedTouches[0].screenY;
-  gestureEndTime = Date.now();
-  checkDirection();
-});
-
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -290,7 +274,6 @@ function generateAlphabet() {
     sounds[i] = new Audio("snd/" + symbols[i] + ".mp3");
   }
 
-  console.log(sounds);
   $(".alphabetWrapper").append(
     `<div class='buttons'><div class="buttonWrapper" onclick="rotateClicked()"><img class="button" src="img/rotate.png" /></div><div class="buttonWrapper" onclick="settingsClicked()"><img class="button" src="img/settings.png" /></div></div>`,
   );
@@ -316,7 +299,6 @@ function backClicked() {
   $(".backButton").hide();
   $(".outer").hide();
   $(".singleLetterWrapper").empty();
-  $(".infoWrapper").hide();
   $("body").css("background", "#fff");
   isMain = true;
 }
@@ -331,14 +313,6 @@ function rotateClicked() {
     generateAlphabet();
   }
   isImages = !isImages;
-}
-
-function settingsClicked() {
-  $(".infoWrapper").css("background", "#70DB72ef");
-  $(".infoBackButton").show();
-  $(".infoWrapper").show();
-  isMain = false;
-  currentLetterIndex = -1;
 }
 
 const getLetterHtml = (index) =>
@@ -356,6 +330,19 @@ const getLetterHtmlPage = (index) =>
   }.png" /></div><h1 class="fullLetter">${
     capitalizeFirstLetter(letters[index])
   }</h1><h1 class="fullText">${capitalizeFirstLetter(words[index])}</h1>`;
+
+document.addEventListener("touchstart", (e) => {
+  touchstartX = e.changedTouches[0].screenX;
+  touchstartY = e.changedTouches[0].screenY;
+  gestureStartTime = Date.now();
+});
+
+document.addEventListener("touchend", (e) => {
+  touchendX = e.changedTouches[0].screenX;
+  touchendY = e.changedTouches[0].screenY;
+  gestureEndTime = Date.now();
+  checkDirection();
+});
 
 jQuery(document).ready(function () {
   generateAlphabet();
