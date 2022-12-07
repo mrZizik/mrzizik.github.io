@@ -253,8 +253,9 @@ function gestureLeft() {
     settingsClicked();
   } else {
     if (currentLetterIndex > 0) {
-      currentLetterIndex--;
-      clickLetter(currentLetterIndex);
+      clickLetter(currentLetterIndex - 1);
+    } else {
+      clickLetter(letters.length - 1);
     }
   }
 }
@@ -329,6 +330,7 @@ function settingsClicked() {
   $(".infoWrapper").css("background", "#70DB72ef");
   $(".infoBackButton").show();
   $(".infoWrapper").show();
+  isMain = false;
 }
 
 const getLetterHtml = (index) =>
