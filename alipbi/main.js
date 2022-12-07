@@ -239,22 +239,22 @@ function gestureRight() {
   if (isMain) {
     rotateClicked();
   } else {
-    if (currentLetterIndex >= 0) {
-      clickLetter(currentLetterIndex + 1);
-    } else {
-      backClicked();
-    }
-  }
-}
-
-function gestureLeft() {
-  if (isMain) {
-    settingsClicked();
-  } else {
     if (currentLetterIndex > 0) {
       clickLetter(currentLetterIndex - 1);
     } else {
       clickLetter(letters.length - 1);
+    }
+  }
+
+  function gestureLeft() {
+    if (isMain) {
+      settingsClicked();
+    } else {
+      if (currentLetterIndex >= 0) {
+        clickLetter(currentLetterIndex + 1);
+      } else {
+        clickLetter(0);
+      }
     }
   }
 }
@@ -330,6 +330,7 @@ function settingsClicked() {
   $(".infoBackButton").show();
   $(".infoWrapper").show();
   isMain = false;
+  currentLetterIndex = -1;
 }
 
 const getLetterHtml = (index) =>
