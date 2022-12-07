@@ -239,9 +239,8 @@ function gestureRight() {
   if (isMain) {
     rotateClicked();
   } else {
-    if (currentLetterIndex > 0) {
-      currentLetterIndex++;
-      clickLetter(currentLetterIndex);
+    if (currentLetterIndex >= 0) {
+      clickLetter(currentLetterIndex + 1);
     } else {
       backClicked();
     }
