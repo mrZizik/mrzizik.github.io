@@ -239,10 +239,14 @@ function gestureRight() {
   if (isMain) {
     rotateClicked();
   } else {
-    if (currentLetterIndex > 0) {
-      clickLetter(currentLetterIndex - 1);
+    if (currentLetterIndex != -1) {
+      if (currentLetterIndex > 0) {
+        clickLetter(currentLetterIndex - 1);
+      } else {
+        clickLetter(letters.length - 1);
+      }
     } else {
-      clickLetter(letters.length - 1);
+      backClicked();
     }
   }
 }
@@ -251,10 +255,14 @@ function gestureLeft() {
   if (isMain) {
     settingsClicked();
   } else {
-    if (currentLetterIndex >= 0) {
-      clickLetter(currentLetterIndex + 1);
+    if (currentLetterIndex != -1) {
+      if (currentLetterIndex >= 0) {
+        clickLetter(currentLetterIndex + 1);
+      } else {
+        clickLetter(0);
+      }
     } else {
-      clickLetter(0);
+      backClicked();
     }
   }
 }
