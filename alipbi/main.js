@@ -227,13 +227,13 @@ function checkDirection() {
 document.addEventListener("touchstart", (e) => {
   touchstartX = e.changedTouches[0].screenX;
   touchstartY = e.changedTouches[0].screenY;
-  gestureStartTime = Date().now;
+  gestureStartTime = Date.now();
 });
 
 document.addEventListener("touchend", (e) => {
   touchendX = e.changedTouches[0].screenX;
   touchendY = e.changedTouches[0].screenY;
-  gestureEndTime = Date().now;
+  gestureEndTime = Date.now();
   checkDirection();
 });
 
