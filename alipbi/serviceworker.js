@@ -1,32 +1,51 @@
 const FILES_TO_CACHE = [
-  "/offline.html",
+  "/*",
+  "/font/*",
+  "/img/*",
+  "img/letters/thumb/*",
+  "img/letters/*",
+  "/snd/*",
 ];
 
-const CACHE = "cache-and-update-v1";
+const CACHE_NAME = "static-cache-v2";
 
-// При установке воркера мы должны закешировать часть данных (статику).
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(["/"])),
+self.addEventListener("install", (evt) => {
+  evt.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(FILES_TO_CACHE);
+    }),
   );
 });
 
-// при событии fetch, мы используем кэш, и только потом обновляем его данным с сервера
+self.addEventListener("activate", (evt) => {
+  evt.waitUntil(
+    caches.keys().then((keyList) => {
+      return Promise.all(keyList.map((key) => {
+        if (key !== CACHE_NAME) {
+          console.log("[ServiceWorker] Removing old cache", key);
+          return caches.delete(key);
+        }
+      }));
+    }),
+  );
+  self.clients.claim();
+});
+
 self.addEventListener("fetch", function (event) {
-  // Мы используем `respondWith()`, чтобы мгновенно ответить без ожидания ответа с сервера.
   event.respondWith(fromCache(event.request));
-  // `waitUntil()` нужен, чтобы предотвратить прекращение работы worker'a до того как кэш обновиться.
   event.waitUntil(update(event.request));
 });
 
-async function fromCache(request) {
-  const cache = await caches.open(CACHE);
-  const matching = await cache.match(request);
-  return matching || Promise.reject("no-match");
+function fromCache(request) {
+  return caches.open(CACHE).then((cache) =>
+    cache.match(request).then((matching) =>
+      matching || Promise.reject("no-match")
+    )
+  );
 }
 
-async function update(request) {
-  const cache = await caches.open(CACHE);
-  const response = await fetch(request);
-  return await cache.put(request, response);
+function update(request) {
+  return caches.open(CACHE).then((cache) =>
+    fetch(request).then((response) => cache.put(request, response))
+  );
 }
