@@ -279,7 +279,11 @@ function generateAlphabet() {
 
 function clickLetter(index) {
   $(".singleLetterWrapper").empty();
-  sounds[currentLetterIndex].stop();
+
+  if (sounds[currentLetterIndex] != undefined) {
+    sounds[currentLetterIndex].pause();
+    sounds[currentLetterIndex].currentTime = 0;
+  }
   sounds[index].play();
   $(".alphabetWrapper").hide();
   $("body").css("background", colors[index]);
@@ -292,6 +296,11 @@ function clickLetter(index) {
 }
 
 function backClicked() {
+  if (sounds[currentLetterIndex] != undefined) {
+    sounds[currentLetterIndex].pause();
+    sounds[currentLetterIndex].currentTime = 0;
+  }
+  currentLetterIndex = -1;
   $(".alphabetWrapper").show();
   $(".backButton").hide();
   $(".outer").hide();
