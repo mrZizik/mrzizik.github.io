@@ -274,15 +274,12 @@ function generateAlphabet() {
     sounds[i] = new Audio("snd/" + symbols[i] + ".mp3");
   }
 
-  $(".alphabetWrapper").append(
-    `<div class='buttons'><div class="buttonWrapper" onclick="rotateClicked()"><img class="button" src="img/rotate.png" /></div><div class="buttonWrapper" onclick="settingsClicked()"><img class="button" src="img/settings.png" /></div></div>`,
-  );
-
   $(".outer").hide();
 }
 
 function clickLetter(index) {
   $(".singleLetterWrapper").empty();
+  sounds[currentLetterIndex].stop();
   sounds[index].play();
   $(".alphabetWrapper").hide();
   $("body").css("background", colors[index]);
