@@ -327,7 +327,7 @@ const getLetterHtml = (index) =>
 const getLetterHtmlPage = (index) =>
   `<div class="imageWrapper"><img class="fullImage" src="img/letters/${
     capitalizeFirstLetter(symbols[index])
-  }.png" /></div><h1 class="fullLetter">${
+  }.webp" /></div><h1 class="fullLetter">${
     capitalizeFirstLetter(letters[index])
   }</h1><h1 class="fullText">${capitalizeFirstLetter(words[index])}</h1>`;
 
@@ -347,4 +347,3 @@ document.addEventListener("touchend", (e) => {
 jQuery(document).ready(function () {
   generateAlphabet();
 });
-
